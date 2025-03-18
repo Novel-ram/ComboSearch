@@ -1,7 +1,7 @@
-using ComboSearch.CharacterList;
+using ComboSerch.Parameter;
 using System.Reflection.Metadata;
 
-namespace ComboSearch
+namespace ComboSerch
 {
     public partial class CharacterSelect : Form
     {

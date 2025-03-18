@@ -1,4 +1,4 @@
-namespace ComboSearch
+namespace ComboSerch
 {
     internal static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace ComboSearch
+﻿namespace ComboSerch
 {
     partial class CharacterSelect
     {

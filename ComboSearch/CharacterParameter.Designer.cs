@@ -1,4 +1,4 @@
-﻿namespace ComboSearch.CharacterList
+﻿namespace ComboSerch.Parameter
 {
     partial class CharacterParameter
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ComboSearch.CharacterList
+namespace ComboSerch.Parameter
 {
 
     public partial class CharacterParameter : Form
