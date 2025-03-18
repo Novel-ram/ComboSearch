@@ -22,7 +22,7 @@ namespace ComboSearch
             Parameter.Text = "ÉãÅ[ÉN";
         }
 
-        private void Jamie_Click(object sender, EventArgs e )
+        private void Jamie_Click(object sender, EventArgs e)
         {
             var Parameter = new CharacterParameter();
             Parameter.Show();

@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            openFileDialog1 = new OpenFileDialog();
-            saveFileDialog1 = new SaveFileDialog();
-            menuStrip1 = new MenuStrip();
-            新規作成ToolStripMenuItem = new ToolStripMenuItem();
-            新規作成ToolStripMenuItem1 = new ToolStripMenuItem();
-            読み込みToolStripMenuItem = new ToolStripMenuItem();
-            保存ToolStripMenuItem = new ToolStripMenuItem();
             JamieButton = new Button();
             LukeButton = new Button();
             ManonButton = new Button();
@@ -66,46 +59,7 @@
             JPbutton = new Button();
             Juributton = new Button();
             Deejaybutton = new Button();
-            menuStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { 新規作成ToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(633, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // 新規作成ToolStripMenuItem
-            // 
-            新規作成ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 新規作成ToolStripMenuItem1, 読み込みToolStripMenuItem, 保存ToolStripMenuItem });
-            新規作成ToolStripMenuItem.Name = "新規作成ToolStripMenuItem";
-            新規作成ToolStripMenuItem.Size = new Size(53, 20);
-            新規作成ToolStripMenuItem.Text = "ファイル";
-            // 
-            // 新規作成ToolStripMenuItem1
-            // 
-            新規作成ToolStripMenuItem1.Name = "新規作成ToolStripMenuItem1";
-            新規作成ToolStripMenuItem1.Size = new Size(122, 22);
-            新規作成ToolStripMenuItem1.Text = "新規作成";
-            // 
-            // 読み込みToolStripMenuItem
-            // 
-            読み込みToolStripMenuItem.Name = "読み込みToolStripMenuItem";
-            読み込みToolStripMenuItem.Size = new Size(122, 22);
-            読み込みToolStripMenuItem.Text = "読み込み";
-            // 
-            // 保存ToolStripMenuItem
-            // 
-            保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            保存ToolStripMenuItem.Size = new Size(122, 22);
-            保存ToolStripMenuItem.Text = "保存";
             // 
             // JamieButton
             // 
@@ -448,25 +402,12 @@
             Controls.Add(ManonButton);
             Controls.Add(LukeButton);
             Controls.Add(JamieButton);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
             Name = "CharacterSelect";
             Text = "ストリートファイター6";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private OpenFileDialog openFileDialog1;
-        private SaveFileDialog saveFileDialog1;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem 新規作成ToolStripMenuItem;
-        private ToolStripMenuItem 新規作成ToolStripMenuItem1;
-        private ToolStripMenuItem 読み込みToolStripMenuItem;
-        private ToolStripMenuItem 保存ToolStripMenuItem;
         private Button JamieButton;
         private Button LukeButton;
         private Button ManonButton;
