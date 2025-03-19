@@ -1,4 +1,5 @@
-﻿using ComboSerch.Parameter;
+﻿using ComboSearch;
+using ComboSerch.Parameter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,26 @@ namespace ComboSerch
 {
     public partial class RegisterCharacterDialog : Form
     {
+        public ComboInfo Info { get; set; }
+
         public RegisterCharacterDialog()
         {
             InitializeComponent();
+
+            Info = new ComboInfo();
+
+
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
+            Info.Character = CharacterSelectBox.Text;
+            Info.Combo = ComboTextBox.Text;
+            Info.CategoryCombo = CategoryComboTextBox.Text;
+            Info.Attribute = AttributeTextBox.Text;
+            Info.Note = NoteTextBox.Text;
+
+
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -28,6 +42,11 @@ namespace ComboSerch
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void RegisterCharacterDialog_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

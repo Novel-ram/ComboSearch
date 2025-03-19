@@ -61,7 +61,7 @@
             // 
             // CategoryComboTextBox
             // 
-            CategoryComboTextBox.Location = new Point(34, 234);
+            CategoryComboTextBox.Location = new Point(34, 235);
             CategoryComboTextBox.Name = "CategoryComboTextBox";
             CategoryComboTextBox.Size = new Size(242, 23);
             CategoryComboTextBox.TabIndex = 3;
@@ -161,7 +161,8 @@
             Controls.Add(ComboTextBox);
             Controls.Add(RegisterButton);
             Name = "RegisterCharacterDialog";
-            Text = "RegisterCharacterDialog";
+            Text = "新規作成";
+            Load += RegisterCharacterDialog_Load;
             ResumeLayout(false);
             PerformLayout();
         }
