@@ -161,7 +161,6 @@
             Controls.Add(ComboTextBox);
             Controls.Add(RegisterButton);
             Name = "RegisterCharacterDialog";
-            Text = "新規作成";
             Load += RegisterCharacterDialog_Load;
             ResumeLayout(false);
             PerformLayout();
