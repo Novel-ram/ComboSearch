@@ -8,9 +8,9 @@ namespace ComboSearch
 {
     public class ComboInfo
     {
-        public string Character { get; set; } = "";
-
         public string Combo { get; set; } = "";
+
+        public string Damage { get; set; } = "";
 
         public string CategoryCombo { get; set; } = "";
 

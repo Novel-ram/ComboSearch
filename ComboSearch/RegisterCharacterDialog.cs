@@ -27,7 +27,7 @@ namespace ComboSerch
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            Info.Character = CharacterSelectBox.Text;
+            Info.Damage = DamegeSelectBox.Text;
             Info.Combo = ComboTextBox.Text;
             Info.CategoryCombo = CategoryComboTextBox.Text;
             Info.Attribute = AttributeTextBox.Text;
@@ -46,7 +46,7 @@ namespace ComboSerch
 
         private void RegisterCharacterDialog_Load(object sender, EventArgs e)
         {
-            CharacterSelectBox.Text = Text;
+
         }
     }
 }

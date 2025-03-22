@@ -22,7 +22,7 @@ namespace ComboSerch.Parameter
         }
 
         /// <summary>
-        /// リストボックスの内容を更新する
+        /// コンボルートの内容を更新する
         /// </summary>
         void UpdateListBox()
         {
@@ -32,13 +32,56 @@ namespace ComboSerch.Parameter
                 ComboRoute.Items.Add(info);
             }
         }
-         /// <summary>
-         /// カテゴリを登録する
-         /// </summary>
-         /// <param name="name"></param>
-        void RegisterCharacter(string name)
-        {
 
+        /// <summary>
+        /// ダメージカテゴリを登録する
+        /// </summary>
+        /// <param name="name"></param>
+        void DamageRegisterCategory(string name)
+        {
+            foreach (string categoryName in DamageComboBox.Items)
+            {
+                if(categoryName == name)
+                {
+                    return;
+                }
+            }
+
+            DamageComboBox.Items.Add(name);
+
+        }
+
+        /// <summary>
+        /// 状況カテゴリを登録する
+        /// </summary>
+        /// <param name="name"></param>
+        void CategoryRegisterCategory(string name)
+        {
+            foreach (string categoryName in CategoryComboComboBox.Items)
+            {
+                if (categoryName == name)
+                {
+                    return;
+                }
+            }
+            CategoryComboComboBox.Items.Add(name);
+        }
+
+        /// <summary>
+        /// 属性カテゴリを登録する
+        /// </summary>
+        /// <param name="name"></param>
+        void AttributeReagisterCategory(string name)
+        {
+            
+            foreach (string categoryName in AttributeComboBox.Items)
+            {
+                if (categoryName == name)
+                {
+                    return;
+                }
+            }
+            AttributeComboBox.Items.Add(name);
         }
 
         /// <summary>
@@ -50,12 +93,15 @@ namespace ComboSerch.Parameter
         {
 
             var dialog = new RegisterCharacterDialog();
-            dialog.Text = Text;
+            dialog.Text = Text + " コンボ登録";
             var result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
                 ParameterList.Add(dialog.Info);
-                RegisterCharacter(dialog.Info.Character);
+                DamageRegisterCategory(dialog.Info.Damage);
+                CategoryRegisterCategory(dialog.Info.CategoryCombo);
+                AttributeReagisterCategory(dialog.Info.Attribute);
+
             }
             UpdateListBox();
 

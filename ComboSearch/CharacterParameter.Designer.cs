@@ -48,6 +48,8 @@
             label4 = new Label();
             NoteComboBox = new ComboBox();
             label5 = new Label();
+            DamageComboBox = new ComboBox();
+            label6 = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -108,7 +110,7 @@
             // 
             CategoryComboComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             CategoryComboComboBox.FormattingEnabled = true;
-            CategoryComboComboBox.Location = new Point(45, 90);
+            CategoryComboComboBox.Location = new Point(45, 167);
             CategoryComboComboBox.Name = "CategoryComboComboBox";
             CategoryComboComboBox.Size = new Size(174, 23);
             CategoryComboComboBox.TabIndex = 2;
@@ -125,7 +127,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 72);
+            label1.Location = new Point(45, 149);
             label1.Name = "label1";
             label1.Size = new Size(43, 15);
             label1.TabIndex = 4;
@@ -135,7 +137,7 @@
             // 
             AttributeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             AttributeComboBox.FormattingEnabled = true;
-            AttributeComboBox.Location = new Point(45, 160);
+            AttributeComboBox.Location = new Point(45, 244);
             AttributeComboBox.Name = "AttributeComboBox";
             AttributeComboBox.Size = new Size(174, 23);
             AttributeComboBox.TabIndex = 5;
@@ -143,7 +145,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(45, 142);
+            label2.Location = new Point(45, 226);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 6;
@@ -152,7 +154,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(45, 208);
+            label3.Location = new Point(45, 303);
             label3.Name = "label3";
             label3.Size = new Size(55, 15);
             label3.TabIndex = 7;
@@ -162,7 +164,7 @@
             // 
             BeginMoveComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             BeginMoveComboBox.FormattingEnabled = true;
-            BeginMoveComboBox.Location = new Point(45, 226);
+            BeginMoveComboBox.Location = new Point(45, 321);
             BeginMoveComboBox.Name = "BeginMoveComboBox";
             BeginMoveComboBox.Size = new Size(174, 23);
             BeginMoveComboBox.TabIndex = 8;
@@ -189,7 +191,7 @@
             // NoteComboBox
             // 
             NoteComboBox.FormattingEnabled = true;
-            NoteComboBox.Location = new Point(45, 298);
+            NoteComboBox.Location = new Point(45, 398);
             NoteComboBox.Name = "NoteComboBox";
             NoteComboBox.Size = new Size(174, 23);
             NoteComboBox.TabIndex = 11;
@@ -197,17 +199,36 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(45, 280);
+            label5.Location = new Point(45, 383);
             label5.Name = "label5";
-            label5.Size = new Size(24, 15);
+            label5.Size = new Size(36, 15);
             label5.TabIndex = 12;
-            label5.Text = "メモ";
+            label5.Text = "■メモ";
+            // 
+            // DamageComboBox
+            // 
+            DamageComboBox.FormattingEnabled = true;
+            DamageComboBox.Location = new Point(45, 90);
+            DamageComboBox.Name = "DamageComboBox";
+            DamageComboBox.Size = new Size(174, 23);
+            DamageComboBox.TabIndex = 13;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(45, 72);
+            label6.Name = "label6";
+            label6.Size = new Size(52, 15);
+            label6.TabIndex = 14;
+            label6.Text = "■ダメージ";
             // 
             // CharacterParameter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(584, 611);
+            Controls.Add(label6);
+            Controls.Add(DamageComboBox);
             Controls.Add(label5);
             Controls.Add(NoteComboBox);
             Controls.Add(label4);
@@ -252,5 +273,7 @@
         private ToolStripMenuItem SelectToolStripMenuItem;
         private ComboBox NoteComboBox;
         private Label label5;
+        private ComboBox DamageComboBox;
+        private Label label6;
     }
 }

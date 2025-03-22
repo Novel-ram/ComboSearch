@@ -38,7 +38,7 @@
             label4 = new Label();
             label5 = new Label();
             NoteTextBox = new TextBox();
-            CharacterSelectBox = new TextBox();
+            DamegeSelectBox = new TextBox();
             CancelButton = new Button();
             SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             // 
             // ComboTextBox
             // 
-            ComboTextBox.Location = new Point(34, 153);
+            ComboTextBox.Location = new Point(34, 72);
             ComboTextBox.Name = "ComboTextBox";
             ComboTextBox.Size = new Size(242, 23);
             ComboTextBox.TabIndex = 2;
@@ -76,16 +76,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(34, 54);
+            label1.Location = new Point(34, 130);
             label1.Name = "label1";
-            label1.Size = new Size(70, 15);
+            label1.Size = new Size(52, 15);
             label1.TabIndex = 7;
-            label1.Text = "■キャラクター";
+            label1.Text = "■ダメージ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 130);
+            label2.Location = new Point(37, 54);
             label2.Name = "label2";
             label2.Size = new Size(46, 15);
             label2.TabIndex = 8;
@@ -126,12 +126,12 @@
             NoteTextBox.Size = new Size(389, 134);
             NoteTextBox.TabIndex = 12;
             // 
-            // CharacterSelectBox
+            // DamegeSelectBox
             // 
-            CharacterSelectBox.Location = new Point(37, 72);
-            CharacterSelectBox.Name = "CharacterSelectBox";
-            CharacterSelectBox.Size = new Size(242, 23);
-            CharacterSelectBox.TabIndex = 13;
+            DamegeSelectBox.Location = new Point(37, 148);
+            DamegeSelectBox.Name = "DamegeSelectBox";
+            DamegeSelectBox.Size = new Size(242, 23);
+            DamegeSelectBox.TabIndex = 13;
             // 
             // CancelButton
             // 
@@ -149,7 +149,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(461, 611);
             Controls.Add(CancelButton);
-            Controls.Add(CharacterSelectBox);
+            Controls.Add(DamegeSelectBox);
             Controls.Add(NoteTextBox);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -178,7 +178,7 @@
         private Label label4;
         private Label label5;
         private TextBox NoteTextBox;
-        private TextBox CharacterSelectBox;
+        private TextBox DamegeSelectBox;
         private Button CancelButton;
     }
 }
