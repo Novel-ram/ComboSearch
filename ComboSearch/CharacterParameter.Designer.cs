@@ -38,7 +38,7 @@
             保存ToolStripMenuItem = new ToolStripMenuItem();
             SelectToolStripMenuItem = new ToolStripMenuItem();
             CategoryComboComboBox = new ComboBox();
-            ComboRoute = new ListBox();
+            ComboRouteLIstBox = new ListBox();
             label1 = new Label();
             AttributeComboBox = new ComboBox();
             label2 = new Label();
@@ -55,7 +55,7 @@
             // 
             // ItemRoadButton
             // 
-            ItemRoadButton.Location = new Point(308, 508);
+            ItemRoadButton.Location = new Point(299, 508);
             ItemRoadButton.Name = "ItemRoadButton";
             ItemRoadButton.Size = new Size(225, 49);
             ItemRoadButton.TabIndex = 0;
@@ -115,14 +115,15 @@
             CategoryComboComboBox.Size = new Size(174, 23);
             CategoryComboComboBox.TabIndex = 2;
             // 
-            // ComboRoute
+            // ComboRouteLIstBox
             // 
-            ComboRoute.FormattingEnabled = true;
-            ComboRoute.ItemHeight = 15;
-            ComboRoute.Location = new Point(268, 90);
-            ComboRoute.Name = "ComboRoute";
-            ComboRoute.Size = new Size(256, 334);
-            ComboRoute.TabIndex = 3;
+            ComboRouteLIstBox.FormattingEnabled = true;
+            ComboRouteLIstBox.ItemHeight = 15;
+            ComboRouteLIstBox.Location = new Point(268, 90);
+            ComboRouteLIstBox.Name = "ComboRouteLIstBox";
+            ComboRouteLIstBox.Size = new Size(256, 334);
+            ComboRouteLIstBox.TabIndex = 3;
+            ComboRouteLIstBox.SelectedIndexChanged += ComboRoute_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -190,6 +191,7 @@
             // 
             // NoteComboBox
             // 
+            NoteComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             NoteComboBox.FormattingEnabled = true;
             NoteComboBox.Location = new Point(45, 398);
             NoteComboBox.Name = "NoteComboBox";
@@ -207,6 +209,7 @@
             // 
             // DamageComboBox
             // 
+            DamageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             DamageComboBox.FormattingEnabled = true;
             DamageComboBox.Location = new Point(45, 90);
             DamageComboBox.Name = "DamageComboBox";
@@ -238,7 +241,7 @@
             Controls.Add(label2);
             Controls.Add(AttributeComboBox);
             Controls.Add(label1);
-            Controls.Add(ComboRoute);
+            Controls.Add(ComboRouteLIstBox);
             Controls.Add(CategoryComboComboBox);
             Controls.Add(ItemRoadButton);
             Controls.Add(menuStrip1);
@@ -262,7 +265,7 @@
         private ToolStripMenuItem 読み込みToolStripMenuItem;
         private ToolStripMenuItem 保存ToolStripMenuItem;
         private ComboBox CategoryComboComboBox;
-        private ListBox ComboRoute;
+        private ListBox ComboRouteLIstBox;
         private Label label1;
         private ComboBox AttributeComboBox;
         private Label label2;

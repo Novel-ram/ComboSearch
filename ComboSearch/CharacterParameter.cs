@@ -26,10 +26,10 @@ namespace ComboSerch.Parameter
         /// </summary>
         void UpdateListBox()
         {
-            ComboRoute.Items.Clear();
+            ComboRouteLIstBox.Items.Clear();
             foreach (var info in ParameterList)
             {
-                ComboRoute.Items.Add(info);
+                ComboRouteLIstBox.Items.Add(info);
             }
         }
 
@@ -41,7 +41,7 @@ namespace ComboSerch.Parameter
         {
             foreach (string categoryName in DamageComboBox.Items)
             {
-                if(categoryName == name)
+                if (categoryName == name)
                 {
                     return;
                 }
@@ -73,7 +73,7 @@ namespace ComboSerch.Parameter
         /// <param name="name"></param>
         void AttributeReagisterCategory(string name)
         {
-            
+
             foreach (string categoryName in AttributeComboBox.Items)
             {
                 if (categoryName == name)
@@ -117,6 +117,28 @@ namespace ComboSerch.Parameter
         {
 
         }
+
+        /// <summary>
+        /// コンボルートボックスを選択した時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboRoute_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            var road = new ComboRoad();
+            ComboInfo info = (ComboInfo)ComboRouteLIstBox.SelectedItem;
+            road.Text = Text;
+            road.Controls["ComboTextBox"].Text = info.Combo;
+            road.Controls["DamageTextBox"].Text = info.Damage;
+            road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
+            road.Controls["AttributeTextBox"].Text = info.Attribute;
+            road.Controls["NoteTextBox"].Text = info.Note;
+            road.Show();
+        }
+
+
+
     }
 
 }
