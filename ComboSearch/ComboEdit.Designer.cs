@@ -1,6 +1,6 @@
 ﻿namespace ComboSerch
 {
-    partial class ComboRoad
+    partial class ComboEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -88,71 +88,56 @@
             // ComboTextBox
             // 
             ComboTextBox.BackColor = SystemColors.Window;
-            ComboTextBox.BorderStyle = BorderStyle.None;
-            ComboTextBox.Enabled = false;
             ComboTextBox.Font = new Font("Yu Gothic UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             ComboTextBox.Location = new Point(29, 58);
             ComboTextBox.Name = "ComboTextBox";
-            ComboTextBox.ReadOnly = true;
-            ComboTextBox.Size = new Size(341, 20);
+            ComboTextBox.Size = new Size(341, 27);
             ComboTextBox.TabIndex = 5;
             // 
             // DamageTextBox
             // 
             DamageTextBox.BackColor = SystemColors.Window;
-            DamageTextBox.BorderStyle = BorderStyle.None;
-            DamageTextBox.Enabled = false;
             DamageTextBox.Font = new Font("Yu Gothic UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             DamageTextBox.Location = new Point(29, 136);
             DamageTextBox.Name = "DamageTextBox";
-            DamageTextBox.ReadOnly = true;
-            DamageTextBox.Size = new Size(341, 20);
+            DamageTextBox.Size = new Size(341, 27);
             DamageTextBox.TabIndex = 6;
             // 
             // CategoryComboTextBox
             // 
             CategoryComboTextBox.BackColor = SystemColors.Window;
-            CategoryComboTextBox.BorderStyle = BorderStyle.None;
-            CategoryComboTextBox.Enabled = false;
             CategoryComboTextBox.Font = new Font("Yu Gothic UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             CategoryComboTextBox.Location = new Point(29, 214);
             CategoryComboTextBox.Name = "CategoryComboTextBox";
-            CategoryComboTextBox.ReadOnly = true;
-            CategoryComboTextBox.Size = new Size(341, 20);
+            CategoryComboTextBox.Size = new Size(341, 27);
             CategoryComboTextBox.TabIndex = 7;
             // 
             // AttributeTextBox
             // 
             AttributeTextBox.BackColor = SystemColors.Window;
-            AttributeTextBox.BorderStyle = BorderStyle.None;
-            AttributeTextBox.Enabled = false;
             AttributeTextBox.Font = new Font("Yu Gothic UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             AttributeTextBox.ImeMode = ImeMode.NoControl;
             AttributeTextBox.Location = new Point(29, 292);
             AttributeTextBox.Name = "AttributeTextBox";
-            AttributeTextBox.ReadOnly = true;
-            AttributeTextBox.Size = new Size(341, 20);
+            AttributeTextBox.Size = new Size(341, 27);
             AttributeTextBox.TabIndex = 8;
             // 
             // NoteTextBox
             // 
             NoteTextBox.BackColor = SystemColors.Window;
-            NoteTextBox.BorderStyle = BorderStyle.None;
-            NoteTextBox.Enabled = false;
             NoteTextBox.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            NoteTextBox.Location = new Point(29, 370);
+            NoteTextBox.Location = new Point(29, 359);
             NoteTextBox.Multiline = true;
             NoteTextBox.Name = "NoteTextBox";
-            NoteTextBox.ReadOnly = true;
             NoteTextBox.Size = new Size(341, 166);
             NoteTextBox.TabIndex = 9;
             // 
-            // ComboRoad
+            // ComboEdit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(400, 566);
+            ClientSize = new Size(400, 537);
             Controls.Add(NoteTextBox);
             Controls.Add(AttributeTextBox);
             Controls.Add(CategoryComboTextBox);
@@ -165,9 +150,8 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "ComboRoad";
-            Text = "ComboRoad";
-            Load += ComboRoad_Load;
+            Name = "ComboEdit";
+            Text = "ComboEdit";
             ResumeLayout(false);
             PerformLayout();
         }

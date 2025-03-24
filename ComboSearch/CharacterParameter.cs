@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace ComboSerch.Parameter
 {
@@ -30,6 +34,7 @@ namespace ComboSerch.Parameter
             foreach (var info in ParameterList)
             {
                 ComboRouteLIstBox.Items.Add(info);
+                Text = info.Name;
             }
         }
 
@@ -93,7 +98,7 @@ namespace ComboSerch.Parameter
         {
 
             var dialog = new RegisterCharacterDialog();
-            dialog.Text = Text + " コンボ登録";
+            dialog.Text = Text + "の登録";
             var result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -101,7 +106,6 @@ namespace ComboSerch.Parameter
                 DamageRegisterCategory(dialog.Info.Damage);
                 CategoryRegisterCategory(dialog.Info.CategoryCombo);
                 AttributeReagisterCategory(dialog.Info.Attribute);
-
             }
             UpdateListBox();
 
@@ -119,13 +123,12 @@ namespace ComboSerch.Parameter
         }
 
         /// <summary>
-        /// コンボルートボックスを選択した時
+        /// コンボルートリストボックスをダブルクリックしたとき
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ComboRoute_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboRouteLIstBox_DoubleClick(object sender, EventArgs e)
         {
-            
             var road = new ComboRoad();
             ComboInfo info = (ComboInfo)ComboRouteLIstBox.SelectedItem;
             road.Text = Text;
@@ -134,11 +137,81 @@ namespace ComboSerch.Parameter
             road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
             road.Controls["AttributeTextBox"].Text = info.Attribute;
             road.Controls["NoteTextBox"].Text = info.Note;
+            road.ComboDoubleClick(true);
             road.Show();
         }
+        /// <summary>
+        /// 編集ボタンを押したとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ItemEditButton_Click(object sender, EventArgs e)
+        {
+            ComboRoad road = new ComboRoad();
+            ComboInfo info = (ComboInfo)ComboRouteLIstBox.SelectedItem;
+            road.Text = Text;
+            road.Controls["ComboTextBox"].Text = info.Combo;
+            road.Controls["DamageTextBox"].Text = info.Damage;
+            road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
+            road.Controls["AttributeTextBox"].Text = info.Attribute;
+            road.Controls["NoteTextBox"].Text = info.Note;
+            road.ComboEdita(false);
+            road.ShowDialog();
+        }
 
+        /// <summary>
+        /// メニューの保存を選択したとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.ShowDialog();
+        }
 
+        /// <summary>
+        /// メニューの読み込みを選択したとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog.ShowDialog();
+        }
 
+        /// <summary>
+        /// ファイルを保存するとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            var doc = new XDocument();
+            var writer = XmlWriter.Create(doc.CreateWriter());
+
+            var serializer = new XmlSerializer(typeof(List<ComboInfo>));
+            serializer.Serialize(writer, ParameterList);
+            writer.Close();
+
+            var sw = new StreamWriter(saveFileDialog.FileName);
+            sw.Write(doc.ToString());
+            sw.Close();
+        }
+
+        /// <summary>
+        /// ファイルを開くとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            var serializer = new XmlSerializer(typeof(List<ComboInfo>));
+            var sr = new StreamReader(openFileDialog.FileName);
+            ParameterList = (List<ComboInfo>)serializer.Deserialize(sr);
+            sr.Close();
+
+            UpdateListBox();
+        }
     }
 
 }

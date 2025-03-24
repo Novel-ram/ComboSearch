@@ -8,6 +8,8 @@ namespace ComboSearch
 {
     public class ComboInfo
     {
+        public string Name { get; set; } = "";
+
         public string Combo { get; set; } = "";
 
         public string Damage { get; set; } = "";

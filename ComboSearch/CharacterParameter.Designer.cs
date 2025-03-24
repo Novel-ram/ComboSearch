@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ItemRoadButton = new Button();
-            openFileDialog1 = new OpenFileDialog();
-            saveFileDialog1 = new SaveFileDialog();
+            ItemEditButton = new Button();
+            openFileDialog = new OpenFileDialog();
+            saveFileDialog = new SaveFileDialog();
             menuStrip1 = new MenuStrip();
             ファイルToolStripMenuItem = new ToolStripMenuItem();
-            新規作成ToolStripMenuItem = new ToolStripMenuItem();
-            読み込みToolStripMenuItem = new ToolStripMenuItem();
-            保存ToolStripMenuItem = new ToolStripMenuItem();
+            ReadToolStripMenuItem = new ToolStripMenuItem();
+            SaveToolStripMenuItem = new ToolStripMenuItem();
             SelectToolStripMenuItem = new ToolStripMenuItem();
             CategoryComboComboBox = new ComboBox();
             ComboRouteLIstBox = new ListBox();
@@ -53,52 +52,57 @@
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // ItemRoadButton
+            // ItemEditButton
             // 
-            ItemRoadButton.Location = new Point(299, 508);
-            ItemRoadButton.Name = "ItemRoadButton";
-            ItemRoadButton.Size = new Size(225, 49);
-            ItemRoadButton.TabIndex = 0;
-            ItemRoadButton.Text = "読み込み";
-            ItemRoadButton.UseVisualStyleBackColor = true;
+            ItemEditButton.Location = new Point(230, 497);
+            ItemEditButton.Name = "ItemEditButton";
+            ItemEditButton.Size = new Size(201, 49);
+            ItemEditButton.TabIndex = 0;
+            ItemEditButton.Text = "編集";
+            ItemEditButton.UseVisualStyleBackColor = true;
+            ItemEditButton.Click += ItemEditButton_Click;
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog.FileName = "openFileDialog";
+            openFileDialog.Filter = "XMLファイル|*.xml|すべてのファイル|*.*";
+            openFileDialog.FileOk += OpenFileDialog_FileOk;
+            // 
+            // saveFileDialog
+            // 
+            saveFileDialog.FileName = "saveFileDialog";
+            saveFileDialog.Filter = "XMLファイル|*.xml|すべてのファイル|*.*";
+            saveFileDialog.FileOk += SaveFileDialog_FileOk;
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { ファイルToolStripMenuItem, SelectToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(584, 24);
+            menuStrip1.Size = new Size(461, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
             // ファイルToolStripMenuItem
             // 
-            ファイルToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 新規作成ToolStripMenuItem, 読み込みToolStripMenuItem, 保存ToolStripMenuItem });
+            ファイルToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ReadToolStripMenuItem, SaveToolStripMenuItem });
             ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
             ファイルToolStripMenuItem.Size = new Size(53, 20);
             ファイルToolStripMenuItem.Text = "ファイル";
             // 
-            // 新規作成ToolStripMenuItem
+            // ReadToolStripMenuItem
             // 
-            新規作成ToolStripMenuItem.Name = "新規作成ToolStripMenuItem";
-            新規作成ToolStripMenuItem.Size = new Size(122, 22);
-            新規作成ToolStripMenuItem.Text = "新規作成";
+            ReadToolStripMenuItem.Name = "ReadToolStripMenuItem";
+            ReadToolStripMenuItem.Size = new Size(120, 22);
+            ReadToolStripMenuItem.Text = "読み込み";
+            ReadToolStripMenuItem.Click += ReadToolStripMenuItem_Click;
             // 
-            // 読み込みToolStripMenuItem
+            // SaveToolStripMenuItem
             // 
-            読み込みToolStripMenuItem.Name = "読み込みToolStripMenuItem";
-            読み込みToolStripMenuItem.Size = new Size(122, 22);
-            読み込みToolStripMenuItem.Text = "読み込み";
-            // 
-            // 保存ToolStripMenuItem
-            // 
-            保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            保存ToolStripMenuItem.Size = new Size(122, 22);
-            保存ToolStripMenuItem.Text = "保存";
+            SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            SaveToolStripMenuItem.Size = new Size(120, 22);
+            SaveToolStripMenuItem.Text = "保存";
+            SaveToolStripMenuItem.Click += SaveToolStripMenuItem_Click;
             // 
             // SelectToolStripMenuItem
             // 
@@ -110,25 +114,25 @@
             // 
             CategoryComboComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             CategoryComboComboBox.FormattingEnabled = true;
-            CategoryComboComboBox.Location = new Point(45, 167);
+            CategoryComboComboBox.Location = new Point(22, 167);
             CategoryComboComboBox.Name = "CategoryComboComboBox";
-            CategoryComboComboBox.Size = new Size(174, 23);
+            CategoryComboComboBox.Size = new Size(188, 23);
             CategoryComboComboBox.TabIndex = 2;
             // 
             // ComboRouteLIstBox
             // 
             ComboRouteLIstBox.FormattingEnabled = true;
             ComboRouteLIstBox.ItemHeight = 15;
-            ComboRouteLIstBox.Location = new Point(268, 90);
+            ComboRouteLIstBox.Location = new Point(230, 90);
             ComboRouteLIstBox.Name = "ComboRouteLIstBox";
-            ComboRouteLIstBox.Size = new Size(256, 334);
+            ComboRouteLIstBox.Size = new Size(201, 349);
             ComboRouteLIstBox.TabIndex = 3;
-            ComboRouteLIstBox.SelectedIndexChanged += ComboRoute_SelectedIndexChanged;
+            ComboRouteLIstBox.DoubleClick += ComboRouteLIstBox_DoubleClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 149);
+            label1.Location = new Point(22, 149);
             label1.Name = "label1";
             label1.Size = new Size(43, 15);
             label1.TabIndex = 4;
@@ -138,15 +142,15 @@
             // 
             AttributeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             AttributeComboBox.FormattingEnabled = true;
-            AttributeComboBox.Location = new Point(45, 244);
+            AttributeComboBox.Location = new Point(22, 244);
             AttributeComboBox.Name = "AttributeComboBox";
-            AttributeComboBox.Size = new Size(174, 23);
+            AttributeComboBox.Size = new Size(188, 23);
             AttributeComboBox.TabIndex = 5;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(45, 226);
+            label2.Location = new Point(22, 226);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 6;
@@ -155,7 +159,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(45, 303);
+            label3.Location = new Point(22, 303);
             label3.Name = "label3";
             label3.Size = new Size(55, 15);
             label3.TabIndex = 7;
@@ -165,16 +169,16 @@
             // 
             BeginMoveComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             BeginMoveComboBox.FormattingEnabled = true;
-            BeginMoveComboBox.Location = new Point(45, 321);
+            BeginMoveComboBox.Location = new Point(22, 321);
             BeginMoveComboBox.Name = "BeginMoveComboBox";
-            BeginMoveComboBox.Size = new Size(174, 23);
+            BeginMoveComboBox.Size = new Size(188, 23);
             BeginMoveComboBox.TabIndex = 8;
             // 
             // RegisterItemButton
             // 
-            RegisterItemButton.Location = new Point(35, 508);
+            RegisterItemButton.Location = new Point(22, 497);
             RegisterItemButton.Name = "RegisterItemButton";
-            RegisterItemButton.Size = new Size(225, 49);
+            RegisterItemButton.Size = new Size(188, 49);
             RegisterItemButton.TabIndex = 9;
             RegisterItemButton.Text = "コンボの登録";
             RegisterItemButton.UseVisualStyleBackColor = true;
@@ -183,7 +187,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(268, 72);
+            label4.Location = new Point(230, 72);
             label4.Name = "label4";
             label4.Size = new Size(60, 15);
             label4.TabIndex = 10;
@@ -193,15 +197,15 @@
             // 
             NoteComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             NoteComboBox.FormattingEnabled = true;
-            NoteComboBox.Location = new Point(45, 398);
+            NoteComboBox.Location = new Point(22, 401);
             NoteComboBox.Name = "NoteComboBox";
-            NoteComboBox.Size = new Size(174, 23);
+            NoteComboBox.Size = new Size(188, 23);
             NoteComboBox.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(45, 383);
+            label5.Location = new Point(22, 383);
             label5.Name = "label5";
             label5.Size = new Size(36, 15);
             label5.TabIndex = 12;
@@ -211,15 +215,15 @@
             // 
             DamageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             DamageComboBox.FormattingEnabled = true;
-            DamageComboBox.Location = new Point(45, 90);
+            DamageComboBox.Location = new Point(22, 90);
             DamageComboBox.Name = "DamageComboBox";
-            DamageComboBox.Size = new Size(174, 23);
+            DamageComboBox.Size = new Size(188, 23);
             DamageComboBox.TabIndex = 13;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(45, 72);
+            label6.Location = new Point(22, 72);
             label6.Name = "label6";
             label6.Size = new Size(52, 15);
             label6.TabIndex = 14;
@@ -229,7 +233,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 611);
+            ClientSize = new Size(461, 569);
             Controls.Add(label6);
             Controls.Add(DamageComboBox);
             Controls.Add(label5);
@@ -243,7 +247,7 @@
             Controls.Add(label1);
             Controls.Add(ComboRouteLIstBox);
             Controls.Add(CategoryComboComboBox);
-            Controls.Add(ItemRoadButton);
+            Controls.Add(ItemEditButton);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "CharacterParameter";
@@ -256,14 +260,14 @@
 
         #endregion
 
-        private Button ItemRoadButton;
-        private OpenFileDialog openFileDialog1;
-        private SaveFileDialog saveFileDialog1;
+        private Button ItemEditButton;
+        private OpenFileDialog openFileDialog;
+        private SaveFileDialog saveFileDialog;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem ファイルToolStripMenuItem;
         private ToolStripMenuItem 新規作成ToolStripMenuItem;
-        private ToolStripMenuItem 読み込みToolStripMenuItem;
-        private ToolStripMenuItem 保存ToolStripMenuItem;
+        private ToolStripMenuItem ReadToolStripMenuItem;
+        private ToolStripMenuItem SaveToolStripMenuItem;
         private ComboBox CategoryComboComboBox;
         private ListBox ComboRouteLIstBox;
         private Label label1;

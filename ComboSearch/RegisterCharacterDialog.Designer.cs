@@ -44,9 +44,9 @@
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(22, 548);
+            RegisterButton.Location = new Point(34, 548);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(182, 51);
+            RegisterButton.Size = new Size(160, 51);
             RegisterButton.TabIndex = 0;
             RegisterButton.Text = "登録";
             RegisterButton.UseVisualStyleBackColor = true;
@@ -56,21 +56,21 @@
             // 
             ComboTextBox.Location = new Point(34, 72);
             ComboTextBox.Name = "ComboTextBox";
-            ComboTextBox.Size = new Size(242, 23);
+            ComboTextBox.Size = new Size(344, 23);
             ComboTextBox.TabIndex = 2;
             // 
             // CategoryComboTextBox
             // 
             CategoryComboTextBox.Location = new Point(34, 235);
             CategoryComboTextBox.Name = "CategoryComboTextBox";
-            CategoryComboTextBox.Size = new Size(242, 23);
+            CategoryComboTextBox.Size = new Size(344, 23);
             CategoryComboTextBox.TabIndex = 3;
             // 
             // AttributeTextBox
             // 
             AttributeTextBox.Location = new Point(34, 315);
             AttributeTextBox.Name = "AttributeTextBox";
-            AttributeTextBox.Size = new Size(242, 23);
+            AttributeTextBox.Size = new Size(344, 23);
             AttributeTextBox.TabIndex = 4;
             // 
             // label1
@@ -123,21 +123,21 @@
             NoteTextBox.Location = new Point(34, 395);
             NoteTextBox.Multiline = true;
             NoteTextBox.Name = "NoteTextBox";
-            NoteTextBox.Size = new Size(389, 134);
+            NoteTextBox.Size = new Size(344, 134);
             NoteTextBox.TabIndex = 12;
             // 
             // DamegeSelectBox
             // 
             DamegeSelectBox.Location = new Point(37, 148);
             DamegeSelectBox.Name = "DamegeSelectBox";
-            DamegeSelectBox.Size = new Size(242, 23);
+            DamegeSelectBox.Size = new Size(341, 23);
             DamegeSelectBox.TabIndex = 13;
             // 
             // CancelButton
             // 
-            CancelButton.Location = new Point(255, 548);
+            CancelButton.Location = new Point(218, 548);
             CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(182, 51);
+            CancelButton.Size = new Size(160, 51);
             CancelButton.TabIndex = 14;
             CancelButton.Text = "キャンセル";
             CancelButton.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(461, 611);
+            ClientSize = new Size(433, 611);
             Controls.Add(CancelButton);
             Controls.Add(DamegeSelectBox);
             Controls.Add(NoteTextBox);
@@ -160,6 +160,8 @@
             Controls.Add(CategoryComboTextBox);
             Controls.Add(ComboTextBox);
             Controls.Add(RegisterButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "RegisterCharacterDialog";
             Load += RegisterCharacterDialog_Load;
             ResumeLayout(false);

@@ -16,6 +16,7 @@ namespace ComboSerch
     {
         public ComboInfo Info { get; set; }
 
+
         public RegisterCharacterDialog()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace ComboSerch
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
+            Info.Name = Text.Replace("の登録" , "");
             Info.Damage = DamegeSelectBox.Text;
             Info.Combo = ComboTextBox.Text;
             Info.CategoryCombo = CategoryComboTextBox.Text;
