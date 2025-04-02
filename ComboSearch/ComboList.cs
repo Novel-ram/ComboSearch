@@ -3,9 +3,9 @@ using System.Reflection.Metadata;
 
 namespace ComboSerch
 {
-    public partial class CharacterSelect : Form
+    public partial class ComboList : Form
     {
-        public CharacterSelect()
+        public ComboList()
         {
             InitializeComponent();
         }
@@ -18,7 +18,7 @@ namespace ComboSerch
         private void Luke_Click(object sender, EventArgs e)
         {
             var Parameter = new CharacterParameter();
-            Parameter.Show();
+            Parameter.ShowDialog();
             Parameter.Text = "ÉãÅ[ÉN";
         }
 

@@ -118,6 +118,7 @@
             CategoryComboComboBox.Name = "CategoryComboComboBox";
             CategoryComboComboBox.Size = new Size(188, 23);
             CategoryComboComboBox.TabIndex = 2;
+            CategoryComboComboBox.SelectedIndexChanged += CategoryComboComboBox_SelectedIndexChanged;
             // 
             // ComboRouteLIstBox
             // 
@@ -146,6 +147,7 @@
             AttributeComboBox.Name = "AttributeComboBox";
             AttributeComboBox.Size = new Size(188, 23);
             AttributeComboBox.TabIndex = 5;
+            AttributeComboBox.SelectedIndexChanged += AttributeComboBox_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -219,6 +221,7 @@
             DamageComboBox.Name = "DamageComboBox";
             DamageComboBox.Size = new Size(188, 23);
             DamageComboBox.TabIndex = 13;
+            DamageComboBox.SelectedIndexChanged += DamageComboBox_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -265,7 +268,6 @@
         private SaveFileDialog saveFileDialog;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem ファイルToolStripMenuItem;
-        private ToolStripMenuItem 新規作成ToolStripMenuItem;
         private ToolStripMenuItem ReadToolStripMenuItem;
         private ToolStripMenuItem SaveToolStripMenuItem;
         private ComboBox CategoryComboComboBox;

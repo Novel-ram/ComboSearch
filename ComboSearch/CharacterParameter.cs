@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,20 +22,63 @@ namespace ComboSerch.Parameter
     {
         public List<ComboInfo> ParameterList = new List<ComboInfo>();
 
+
         public CharacterParameter()
         {
             InitializeComponent();
+
+            UpdateComboBox();
+
         }
 
         /// <summary>
-        /// コンボルートの内容を更新する
+        /// コンボボックスの内容を更新する
+        /// </summary>
+        void UpdateComboBox()
+        {
+            DamageComboBox.Items.Clear();
+            DamageRegisterCategory("すべて");
+
+            CategoryComboComboBox.Items.Clear();
+            CategoryRegisterCategory("すべて");
+
+            AttributeComboBox.Items.Clear();
+            AttributeReagisterCategory("すべて");
+
+            foreach (var info in ParameterList)
+            {
+                DamageRegisterCategory(info.Damage);
+                CategoryRegisterCategory(info.CategoryCombo);
+                AttributeReagisterCategory(info.Attribute);
+            }
+        }
+
+        /// <summary>
+        /// コンボルートリストの内容とformのテキスト を更新する
         /// </summary>
         void UpdateListBox()
         {
-            ComboRouteLIstBox.Items.Clear();
             foreach (var info in ParameterList)
             {
-                ComboRouteLIstBox.Items.Add(info);
+                if (info.Damage == DamageComboBox.Text ||
+                    DamageComboBox.Text == "すべて")
+                {
+                    ComboRouteLIstBox.Items.Add(info);
+                }
+
+                if (info.CategoryCombo == CategoryComboComboBox.Text ||
+                    CategoryComboComboBox.Text=="すべて")
+                {
+                    ComboRouteLIstBox.Items.Add(info);
+
+                }
+
+                if (info.Attribute == AttributeComboBox.Text ||
+                    AttributeComboBox.Text == "すべて")
+                {
+
+                    ComboRouteLIstBox.Items.Add(info);
+                }
                 Text = info.Name;
             }
         }
@@ -51,10 +96,10 @@ namespace ComboSerch.Parameter
                     return;
                 }
             }
-
             DamageComboBox.Items.Add(name);
 
         }
+
 
         /// <summary>
         /// 状況カテゴリを登録する
@@ -103,10 +148,9 @@ namespace ComboSerch.Parameter
             if (result == DialogResult.OK)
             {
                 ParameterList.Add(dialog.Info);
-                DamageRegisterCategory(dialog.Info.Damage);
-                CategoryRegisterCategory(dialog.Info.CategoryCombo);
-                AttributeReagisterCategory(dialog.Info.Attribute);
             }
+
+            UpdateComboBox();
             UpdateListBox();
 
         }
@@ -131,14 +175,17 @@ namespace ComboSerch.Parameter
         {
             var road = new ComboRoad();
             ComboInfo info = (ComboInfo)ComboRouteLIstBox.SelectedItem;
-            road.Text = Text;
-            road.Controls["ComboTextBox"].Text = info.Combo;
-            road.Controls["DamageTextBox"].Text = info.Damage;
-            road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
-            road.Controls["AttributeTextBox"].Text = info.Attribute;
-            road.Controls["NoteTextBox"].Text = info.Note;
-            road.ComboDoubleClick(true);
-            road.Show();
+            if (info != null)
+            {
+                road.Text = Text;
+                road.Controls["ComboTextBox"].Text = info.Combo;
+                road.Controls["DamageTextBox"].Text = info.Damage;
+                road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
+                road.Controls["AttributeTextBox"].Text = info.Attribute;
+                road.Controls["NoteTextBox"].Text = info.Note;
+                road.ComboDoubleClick(true);
+                road.Show();
+            }
         }
         /// <summary>
         /// 編集ボタンを押したとき
@@ -149,14 +196,17 @@ namespace ComboSerch.Parameter
         {
             ComboRoad road = new ComboRoad();
             ComboInfo info = (ComboInfo)ComboRouteLIstBox.SelectedItem;
-            road.Text = Text;
-            road.Controls["ComboTextBox"].Text = info.Combo;
-            road.Controls["DamageTextBox"].Text = info.Damage;
-            road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
-            road.Controls["AttributeTextBox"].Text = info.Attribute;
-            road.Controls["NoteTextBox"].Text = info.Note;
-            road.ComboEdita(false);
-            road.ShowDialog();
+            if (info != null)
+            {
+                road.Text = Text;
+                road.Controls["ComboTextBox"].Text = info.Combo;
+                road.Controls["DamageTextBox"].Text = info.Damage;
+                road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
+                road.Controls["AttributeTextBox"].Text = info.Attribute;
+                road.Controls["NoteTextBox"].Text = info.Note;
+                road.ComboEdita(false);
+                road.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -209,9 +259,58 @@ namespace ComboSerch.Parameter
             var sr = new StreamReader(openFileDialog.FileName);
             ParameterList = (List<ComboInfo>)serializer.Deserialize(sr);
             sr.Close();
-
+            UpdateComboBox();
             UpdateListBox();
         }
+
+        /// <summary>
+        /// ダメージカテゴリの選択を変更したとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DamageComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DamageComboBox.SelectedIndex > -1)
+            {
+                ComboRouteLIstBox.Items.Clear();
+                CategoryComboComboBox.SelectedIndex = -1;
+                AttributeComboBox.SelectedIndex = -1;
+                UpdateListBox();
+            }
+        }
+
+        /// <summary>
+        /// 状況カテゴリの選択を変更したとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CategoryComboComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CategoryComboComboBox.SelectedIndex > -1)
+            {
+                ComboRouteLIstBox.Items.Clear();
+                DamageComboBox.SelectedIndex = -1;
+                AttributeComboBox.SelectedIndex = -1;
+                UpdateListBox();
+            }
+        }
+
+        /// <summary>
+        /// 属性カテゴリの選択を変更したとき
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AttributeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AttributeComboBox.SelectedIndex > -1)
+            {
+                ComboRouteLIstBox.Items.Clear();
+                DamageComboBox.SelectedIndex = -1;
+                CategoryComboComboBox.SelectedIndex = -1;
+                UpdateListBox();
+            }
+        }
+
     }
 
 }
