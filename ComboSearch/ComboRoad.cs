@@ -12,23 +12,24 @@ using System.Windows.Forms;
 
 namespace ComboSerch
 {
-    public partial class ComboRoad: Form
+    public partial class ComboRoad : Form
     {
-        public CharacterParameter CharacterParameter = new CharacterParameter();
-
-        public List<ComboInfo> ParameterList = new List<ComboInfo>();
+        public ComboInfo Info { get; set; }
 
 
         public ComboRoad()
         {
 
             InitializeComponent();
+
+            Info = new ComboInfo();
         }
 
         private void ComboRoad_Load(object sender, EventArgs e)
         {
 
         }
+
 
         /// <summary>
         /// コンボルートリストボックスをダブルクリックしたとき
@@ -92,5 +93,31 @@ namespace ComboSerch
             }
         }
 
+        private void ComboRoad_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Info.Name = Text.Replace("の編集", "");
+            Info.Damage = DamageTextBox.Text;
+            Info.Combo = ComboTextBox.Text;
+            Info.CategoryCombo = CategoryComboTextBox.Text;
+            Info.Attribute = AttributeTextBox.Text;
+            Info.Note = NoteTextBox.Text;
+
+            DialogResult = DialogResult.OK;
+
+            if (ComboTextBox.Modified == true ||
+                DamageTextBox.Modified == true ||
+                CategoryComboTextBox.Modified == true ||
+                AttributeTextBox.Modified == true ||
+                NoteTextBox.Modified == true)
+            {
+                var result = MessageBox.Show("保存しますか？", "確認", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    ComboRoad comboRoad = new ComboRoad();
+                    comboRoad.Close();
+                }
+            }
+        }
     }
 }

@@ -167,6 +167,7 @@
             MaximizeBox = false;
             Name = "ComboRoad";
             Text = "ComboRoad";
+            FormClosing += ComboRoad_FormClosing;
             Load += ComboRoad_Load;
             ResumeLayout(false);
             PerformLayout();

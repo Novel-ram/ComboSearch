@@ -18,7 +18,7 @@ namespace ComboSerch
         private void Luke_Click(object sender, EventArgs e)
         {
             var Parameter = new CharacterParameter();
-            Parameter.ShowDialog();
+            Parameter.Show();
             Parameter.Text = "ÉãÅ[ÉN";
         }
 

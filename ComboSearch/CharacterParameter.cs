@@ -21,7 +21,7 @@ namespace ComboSerch.Parameter
     public partial class CharacterParameter : Form
     {
         public List<ComboInfo> ParameterList = new List<ComboInfo>();
-
+        public string FileName = "";
 
         public CharacterParameter()
         {
@@ -58,6 +58,7 @@ namespace ComboSerch.Parameter
         /// </summary>
         void UpdateListBox()
         {
+            ComboRouteLIstBox.Items.Clear();
             foreach (var info in ParameterList)
             {
                 if (info.Damage == DamageComboBox.Text ||
@@ -148,11 +149,9 @@ namespace ComboSerch.Parameter
             if (result == DialogResult.OK)
             {
                 ParameterList.Add(dialog.Info);
+                UpdateComboBox();
+                UpdateListBox();
             }
-
-            UpdateComboBox();
-            UpdateListBox();
-
         }
 
         private void SelectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -198,14 +197,25 @@ namespace ComboSerch.Parameter
             ComboInfo info = (ComboInfo)ComboRouteLIstBox.SelectedItem;
             if (info != null)
             {
-                road.Text = Text;
+                road.Text = Text + "編集";
                 road.Controls["ComboTextBox"].Text = info.Combo;
                 road.Controls["DamageTextBox"].Text = info.Damage;
                 road.Controls["CategoryComboTextBox"].Text = info.CategoryCombo;
                 road.Controls["AttributeTextBox"].Text = info.Attribute;
                 road.Controls["NoteTextBox"].Text = info.Note;
                 road.ComboEdita(false);
-                road.ShowDialog();
+                var result = road.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    info.Combo = road.Controls["ComboTextBox"].Text;
+                    info.Damage = road.Controls["DamageTextBox"].Text;
+                    info.CategoryCombo = road.Controls["CategoryComboTextBox"].Text;
+                    info.Attribute = road.Controls["AttributeTextBox"].Text;
+                    info.Note = road.Controls["NoteTextBox"].Text;
+                    UpdateComboBox();
+                    UpdateListBox();
+                    SaveComboList(FileName);
+                }
             }
         }
 
@@ -230,22 +240,36 @@ namespace ComboSerch.Parameter
         }
 
         /// <summary>
+        /// パスワードをファイルに保存する
+        /// </summary>
+        /// <param name="filename"></param>
+        void SaveComboList( string filename)
+        {
+            bool ret = string.IsNullOrEmpty(filename);
+            if (ret == false)
+            {
+                var doc = new XDocument();
+                var writer = XmlWriter.Create(doc.CreateWriter());
+
+                var serializer = new XmlSerializer(typeof(List<ComboInfo>));
+                serializer.Serialize(writer, ParameterList);
+                writer.Close();
+
+                var sw = new StreamWriter(filename);
+                sw.Write(doc.ToString());
+                sw.Close();
+            }
+        }
+
+        /// <summary>
         /// ファイルを保存するとき
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            var doc = new XDocument();
-            var writer = XmlWriter.Create(doc.CreateWriter());
-
-            var serializer = new XmlSerializer(typeof(List<ComboInfo>));
-            serializer.Serialize(writer, ParameterList);
-            writer.Close();
-
-            var sw = new StreamWriter(saveFileDialog.FileName);
-            sw.Write(doc.ToString());
-            sw.Close();
+            SaveComboList(saveFileDialog.FileName);
+            FileName = saveFileDialog.FileName;
         }
 
         /// <summary>
@@ -259,6 +283,9 @@ namespace ComboSerch.Parameter
             var sr = new StreamReader(openFileDialog.FileName);
             ParameterList = (List<ComboInfo>)serializer.Deserialize(sr);
             sr.Close();
+
+            FileName = openFileDialog.FileName;
+
             UpdateComboBox();
             UpdateListBox();
         }
@@ -272,7 +299,6 @@ namespace ComboSerch.Parameter
         {
             if (DamageComboBox.SelectedIndex > -1)
             {
-                ComboRouteLIstBox.Items.Clear();
                 CategoryComboComboBox.SelectedIndex = -1;
                 AttributeComboBox.SelectedIndex = -1;
                 UpdateListBox();
@@ -288,7 +314,6 @@ namespace ComboSerch.Parameter
         {
             if (CategoryComboComboBox.SelectedIndex > -1)
             {
-                ComboRouteLIstBox.Items.Clear();
                 DamageComboBox.SelectedIndex = -1;
                 AttributeComboBox.SelectedIndex = -1;
                 UpdateListBox();
@@ -304,7 +329,6 @@ namespace ComboSerch.Parameter
         {
             if (AttributeComboBox.SelectedIndex > -1)
             {
-                ComboRouteLIstBox.Items.Clear();
                 DamageComboBox.SelectedIndex = -1;
                 CategoryComboComboBox.SelectedIndex = -1;
                 UpdateListBox();
