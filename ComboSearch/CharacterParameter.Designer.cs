@@ -242,12 +242,12 @@
             // 
             RclickContextMenuStrip.Items.AddRange(new ToolStripItem[] { DeleteToolStripMenuItem });
             RclickContextMenuStrip.Name = "contextMenuStrip1";
-            RclickContextMenuStrip.Size = new Size(181, 48);
+            RclickContextMenuStrip.Size = new Size(99, 26);
             // 
             // DeleteToolStripMenuItem
             // 
             DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            DeleteToolStripMenuItem.Size = new Size(180, 22);
+            DeleteToolStripMenuItem.Size = new Size(98, 22);
             DeleteToolStripMenuItem.Text = "削除";
             DeleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
             // 
@@ -271,6 +271,7 @@
             Controls.Add(CategoryComboComboBox);
             Controls.Add(ItemEditButton);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
             Name = "CharacterParameter";
             Load += CharacterParameter_Load;
