@@ -29,6 +29,7 @@ namespace ComboSerch.Parameter
 
             UpdateComboBox();
 
+
         }
 
         /// <summary>
@@ -61,6 +62,7 @@ namespace ComboSerch.Parameter
             ComboRouteLIstBox.Items.Clear();
             foreach (var info in ParameterList)
             {
+                
                 if (info.Damage == DamageComboBox.Text ||
                     DamageComboBox.Text == "すべて")
                 {
@@ -68,19 +70,17 @@ namespace ComboSerch.Parameter
                 }
 
                 if (info.CategoryCombo == CategoryComboComboBox.Text ||
-                    CategoryComboComboBox.Text=="すべて")
+                    CategoryComboComboBox.Text == "すべて")
                 {
                     ComboRouteLIstBox.Items.Add(info);
-
                 }
 
                 if (info.Attribute == AttributeComboBox.Text ||
                     AttributeComboBox.Text == "すべて")
                 {
-
                     ComboRouteLIstBox.Items.Add(info);
                 }
-                Text = info.Name;
+                    Text = info.Name;
             }
         }
 
@@ -150,14 +150,23 @@ namespace ComboSerch.Parameter
             {
                 ParameterList.Add(dialog.Info);
                 UpdateComboBox();
+                DamageComboBox.Text = dialog.Info.Damage;
+                CategoryComboComboBox.Text = dialog.Info.CategoryCombo;
+                AttributeComboBox.Text = dialog.Info.Attribute;
                 UpdateListBox();
+
+                SaveComboList(FileName);
             }
         }
 
+        /// <summary>
+        /// キャラ選択ボタン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+            this.Close();
         }
 
         private void CharacterParameter_Load(object sender, EventArgs e)
@@ -243,7 +252,7 @@ namespace ComboSerch.Parameter
         /// パスワードをファイルに保存する
         /// </summary>
         /// <param name="filename"></param>
-        void SaveComboList( string filename)
+        void SaveComboList(string filename)
         {
             bool ret = string.IsNullOrEmpty(filename);
             if (ret == false)
@@ -335,6 +344,43 @@ namespace ComboSerch.Parameter
             }
         }
 
+        /// <summary>
+        /// リストボックスの上でマウスを離した時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboRouteLIstBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point pt = ComboRouteLIstBox.PointToScreen(e.Location);
+                int idx = ComboRouteLIstBox.IndexFromPoint(e.Location);
+                ComboRouteLIstBox.SelectedIndex = idx;
+                if (idx >= 0 && idx <= ComboRouteLIstBox.Items.Count - 1)
+                {
+                    RclickContextMenuStrip.Show(pt);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 右クリックメニューの「削除」を選択した時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("本当に削除しますか？", "確認", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                var info = (ComboInfo)ComboRouteLIstBox.SelectedItem;
+                ParameterList.Remove(info);
+                UpdateComboBox();
+                UpdateListBox();
+
+                SaveComboList(FileName);
+            }
+        }
     }
 
 }

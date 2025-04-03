@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             ItemEditButton = new Button();
             openFileDialog = new OpenFileDialog();
             saveFileDialog = new SaveFileDialog();
@@ -49,7 +50,10 @@
             label5 = new Label();
             DamageComboBox = new ComboBox();
             label6 = new Label();
+            RclickContextMenuStrip = new ContextMenuStrip(components);
+            DeleteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
+            RclickContextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // ItemEditButton
@@ -109,6 +113,7 @@
             SelectToolStripMenuItem.Name = "SelectToolStripMenuItem";
             SelectToolStripMenuItem.Size = new Size(68, 20);
             SelectToolStripMenuItem.Text = "キャラ選択";
+            SelectToolStripMenuItem.Click += SelectToolStripMenuItem_Click;
             // 
             // CategoryComboComboBox
             // 
@@ -129,6 +134,7 @@
             ComboRouteLIstBox.Size = new Size(201, 349);
             ComboRouteLIstBox.TabIndex = 3;
             ComboRouteLIstBox.DoubleClick += ComboRouteLIstBox_DoubleClick;
+            ComboRouteLIstBox.MouseUp += ComboRouteLIstBox_MouseUp;
             // 
             // label1
             // 
@@ -232,6 +238,19 @@
             label6.TabIndex = 14;
             label6.Text = "■ダメージ";
             // 
+            // RclickContextMenuStrip
+            // 
+            RclickContextMenuStrip.Items.AddRange(new ToolStripItem[] { DeleteToolStripMenuItem });
+            RclickContextMenuStrip.Name = "contextMenuStrip1";
+            RclickContextMenuStrip.Size = new Size(181, 48);
+            // 
+            // DeleteToolStripMenuItem
+            // 
+            DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            DeleteToolStripMenuItem.Size = new Size(180, 22);
+            DeleteToolStripMenuItem.Text = "削除";
+            DeleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
+            // 
             // CharacterParameter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -257,6 +276,7 @@
             Load += CharacterParameter_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            RclickContextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -284,5 +304,7 @@
         private Label label5;
         private ComboBox DamageComboBox;
         private Label label6;
+        private ContextMenuStrip RclickContextMenuStrip;
+        private ToolStripMenuItem DeleteToolStripMenuItem;
     }
 }
