@@ -1,6 +1,6 @@
 ﻿namespace ComboSerch
 {
-    partial class CharacterSelect
+    partial class ComboList
     {
         /// <summary>
         ///  Required designer variable.

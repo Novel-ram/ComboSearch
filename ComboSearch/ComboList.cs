@@ -3,9 +3,9 @@ using System.Reflection.Metadata;
 
 namespace ComboSerch
 {
-    public partial class CharacterSelect : Form
+    public partial class ComboList : Form
     {
-        public CharacterSelect()
+        public ComboList()
         {
             InitializeComponent();
         }

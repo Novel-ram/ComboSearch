@@ -38,15 +38,15 @@
             label4 = new Label();
             label5 = new Label();
             NoteTextBox = new TextBox();
-            CharacterSelectBox = new TextBox();
+            DamegeSelectBox = new TextBox();
             CancelButton = new Button();
             SuspendLayout();
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(22, 548);
+            RegisterButton.Location = new Point(34, 548);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(182, 51);
+            RegisterButton.Size = new Size(160, 51);
             RegisterButton.TabIndex = 0;
             RegisterButton.Text = "登録";
             RegisterButton.UseVisualStyleBackColor = true;
@@ -54,38 +54,38 @@
             // 
             // ComboTextBox
             // 
-            ComboTextBox.Location = new Point(34, 153);
+            ComboTextBox.Location = new Point(34, 72);
             ComboTextBox.Name = "ComboTextBox";
-            ComboTextBox.Size = new Size(242, 23);
+            ComboTextBox.Size = new Size(344, 23);
             ComboTextBox.TabIndex = 2;
             // 
             // CategoryComboTextBox
             // 
-            CategoryComboTextBox.Location = new Point(34, 234);
+            CategoryComboTextBox.Location = new Point(34, 235);
             CategoryComboTextBox.Name = "CategoryComboTextBox";
-            CategoryComboTextBox.Size = new Size(242, 23);
+            CategoryComboTextBox.Size = new Size(344, 23);
             CategoryComboTextBox.TabIndex = 3;
             // 
             // AttributeTextBox
             // 
             AttributeTextBox.Location = new Point(34, 315);
             AttributeTextBox.Name = "AttributeTextBox";
-            AttributeTextBox.Size = new Size(242, 23);
+            AttributeTextBox.Size = new Size(344, 23);
             AttributeTextBox.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(34, 54);
+            label1.Location = new Point(34, 130);
             label1.Name = "label1";
-            label1.Size = new Size(70, 15);
+            label1.Size = new Size(52, 15);
             label1.TabIndex = 7;
-            label1.Text = "■キャラクター";
+            label1.Text = "■ダメージ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 130);
+            label2.Location = new Point(37, 54);
             label2.Name = "label2";
             label2.Size = new Size(46, 15);
             label2.TabIndex = 8;
@@ -123,21 +123,21 @@
             NoteTextBox.Location = new Point(34, 395);
             NoteTextBox.Multiline = true;
             NoteTextBox.Name = "NoteTextBox";
-            NoteTextBox.Size = new Size(389, 134);
+            NoteTextBox.Size = new Size(344, 134);
             NoteTextBox.TabIndex = 12;
             // 
-            // CharacterSelectBox
+            // DamegeSelectBox
             // 
-            CharacterSelectBox.Location = new Point(37, 72);
-            CharacterSelectBox.Name = "CharacterSelectBox";
-            CharacterSelectBox.Size = new Size(242, 23);
-            CharacterSelectBox.TabIndex = 13;
+            DamegeSelectBox.Location = new Point(37, 148);
+            DamegeSelectBox.Name = "DamegeSelectBox";
+            DamegeSelectBox.Size = new Size(341, 23);
+            DamegeSelectBox.TabIndex = 13;
             // 
             // CancelButton
             // 
-            CancelButton.Location = new Point(255, 548);
+            CancelButton.Location = new Point(218, 548);
             CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(182, 51);
+            CancelButton.Size = new Size(160, 51);
             CancelButton.TabIndex = 14;
             CancelButton.Text = "キャンセル";
             CancelButton.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(461, 611);
+            ClientSize = new Size(433, 611);
             Controls.Add(CancelButton);
-            Controls.Add(CharacterSelectBox);
+            Controls.Add(DamegeSelectBox);
             Controls.Add(NoteTextBox);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -160,8 +160,10 @@
             Controls.Add(CategoryComboTextBox);
             Controls.Add(ComboTextBox);
             Controls.Add(RegisterButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "RegisterCharacterDialog";
-            Text = "RegisterCharacterDialog";
+            Load += RegisterCharacterDialog_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,7 +180,7 @@
         private Label label4;
         private Label label5;
         private TextBox NoteTextBox;
-        private TextBox CharacterSelectBox;
+        private TextBox DamegeSelectBox;
         private Button CancelButton;
     }
 }
