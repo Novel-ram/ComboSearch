@@ -58,9 +58,10 @@
             // 
             // ItemEditButton
             // 
-            ItemEditButton.Location = new Point(230, 497);
+            ItemEditButton.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            ItemEditButton.Location = new Point(462, 810);
             ItemEditButton.Name = "ItemEditButton";
-            ItemEditButton.Size = new Size(201, 49);
+            ItemEditButton.Size = new Size(276, 62);
             ItemEditButton.TabIndex = 0;
             ItemEditButton.Text = "編集";
             ItemEditButton.UseVisualStyleBackColor = true;
@@ -80,10 +81,11 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             menuStrip1.Items.AddRange(new ToolStripItem[] { ファイルToolStripMenuItem, SelectToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(461, 24);
+            menuStrip1.Size = new Size(814, 33);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -91,47 +93,50 @@
             // 
             ファイルToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ReadToolStripMenuItem, SaveToolStripMenuItem });
             ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
-            ファイルToolStripMenuItem.Size = new Size(53, 20);
+            ファイルToolStripMenuItem.Size = new Size(78, 29);
             ファイルToolStripMenuItem.Text = "ファイル";
             // 
             // ReadToolStripMenuItem
             // 
             ReadToolStripMenuItem.Name = "ReadToolStripMenuItem";
-            ReadToolStripMenuItem.Size = new Size(120, 22);
+            ReadToolStripMenuItem.Size = new Size(156, 30);
             ReadToolStripMenuItem.Text = "読み込み";
             ReadToolStripMenuItem.Click += ReadToolStripMenuItem_Click;
             // 
             // SaveToolStripMenuItem
             // 
             SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            SaveToolStripMenuItem.Size = new Size(120, 22);
+            SaveToolStripMenuItem.Size = new Size(156, 30);
             SaveToolStripMenuItem.Text = "保存";
             SaveToolStripMenuItem.Click += SaveToolStripMenuItem_Click;
             // 
             // SelectToolStripMenuItem
             // 
             SelectToolStripMenuItem.Name = "SelectToolStripMenuItem";
-            SelectToolStripMenuItem.Size = new Size(68, 20);
+            SelectToolStripMenuItem.Size = new Size(102, 29);
             SelectToolStripMenuItem.Text = "キャラ選択";
             SelectToolStripMenuItem.Click += SelectToolStripMenuItem_Click;
             // 
             // CategoryComboComboBox
             // 
             CategoryComboComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            CategoryComboComboBox.Font = new Font("Yu Gothic UI", 14.25F);
             CategoryComboComboBox.FormattingEnabled = true;
-            CategoryComboComboBox.Location = new Point(22, 167);
+            CategoryComboComboBox.Location = new Point(12, 203);
             CategoryComboComboBox.Name = "CategoryComboComboBox";
-            CategoryComboComboBox.Size = new Size(188, 23);
+            CategoryComboComboBox.Size = new Size(327, 33);
             CategoryComboComboBox.TabIndex = 2;
             CategoryComboComboBox.SelectedIndexChanged += CategoryComboComboBox_SelectedIndexChanged;
             // 
             // ComboRouteLIstBox
             // 
+            ComboRouteLIstBox.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
             ComboRouteLIstBox.FormattingEnabled = true;
-            ComboRouteLIstBox.ItemHeight = 15;
-            ComboRouteLIstBox.Location = new Point(230, 90);
+            ComboRouteLIstBox.ItemHeight = 25;
+            ComboRouteLIstBox.Location = new Point(370, 90);
             ComboRouteLIstBox.Name = "ComboRouteLIstBox";
-            ComboRouteLIstBox.Size = new Size(201, 349);
+            ComboRouteLIstBox.ScrollAlwaysVisible = true;
+            ComboRouteLIstBox.Size = new Size(432, 704);
             ComboRouteLIstBox.TabIndex = 3;
             ComboRouteLIstBox.DoubleClick += ComboRouteLIstBox_DoubleClick;
             ComboRouteLIstBox.MouseUp += ComboRouteLIstBox_MouseUp;
@@ -139,54 +144,60 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 149);
+            label1.Font = new Font("Yu Gothic UI", 14.25F);
+            label1.Location = new Point(12, 175);
             label1.Name = "label1";
-            label1.Size = new Size(43, 15);
+            label1.Size = new Size(69, 25);
             label1.TabIndex = 4;
             label1.Text = "■状況";
             // 
             // AttributeComboBox
             // 
             AttributeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AttributeComboBox.Font = new Font("Yu Gothic UI", 14.25F);
             AttributeComboBox.FormattingEnabled = true;
-            AttributeComboBox.Location = new Point(22, 244);
+            AttributeComboBox.Location = new Point(12, 316);
             AttributeComboBox.Name = "AttributeComboBox";
-            AttributeComboBox.Size = new Size(188, 23);
+            AttributeComboBox.Size = new Size(327, 33);
             AttributeComboBox.TabIndex = 5;
             AttributeComboBox.SelectedIndexChanged += AttributeComboBox_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(22, 226);
+            label2.Font = new Font("Yu Gothic UI", 14.25F);
+            label2.Location = new Point(12, 288);
             label2.Name = "label2";
-            label2.Size = new Size(43, 15);
+            label2.Size = new Size(69, 25);
             label2.TabIndex = 6;
             label2.Text = "■属性";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(22, 303);
+            label3.Font = new Font("Yu Gothic UI", 14.25F);
+            label3.Location = new Point(12, 401);
             label3.Name = "label3";
-            label3.Size = new Size(55, 15);
+            label3.Size = new Size(88, 25);
             label3.TabIndex = 7;
             label3.Text = "■始動技";
             // 
             // BeginMoveComboBox
             // 
             BeginMoveComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            BeginMoveComboBox.Font = new Font("Yu Gothic UI", 14.25F);
             BeginMoveComboBox.FormattingEnabled = true;
-            BeginMoveComboBox.Location = new Point(22, 321);
+            BeginMoveComboBox.Location = new Point(12, 429);
             BeginMoveComboBox.Name = "BeginMoveComboBox";
-            BeginMoveComboBox.Size = new Size(188, 23);
+            BeginMoveComboBox.Size = new Size(327, 33);
             BeginMoveComboBox.TabIndex = 8;
             // 
             // RegisterItemButton
             // 
-            RegisterItemButton.Location = new Point(22, 497);
+            RegisterItemButton.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            RegisterItemButton.Location = new Point(92, 810);
             RegisterItemButton.Name = "RegisterItemButton";
-            RegisterItemButton.Size = new Size(188, 49);
+            RegisterItemButton.Size = new Size(276, 62);
             RegisterItemButton.TabIndex = 9;
             RegisterItemButton.Text = "コンボの登録";
             RegisterItemButton.UseVisualStyleBackColor = true;
@@ -195,46 +206,51 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(230, 72);
+            label4.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label4.Location = new Point(370, 62);
             label4.Name = "label4";
-            label4.Size = new Size(60, 15);
+            label4.Size = new Size(96, 25);
             label4.TabIndex = 10;
             label4.Text = "コンボルート";
             // 
             // NoteComboBox
             // 
             NoteComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            NoteComboBox.Font = new Font("Yu Gothic UI", 14.25F);
             NoteComboBox.FormattingEnabled = true;
-            NoteComboBox.Location = new Point(22, 401);
+            NoteComboBox.Location = new Point(12, 544);
             NoteComboBox.Name = "NoteComboBox";
-            NoteComboBox.Size = new Size(188, 23);
+            NoteComboBox.Size = new Size(327, 33);
             NoteComboBox.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(22, 383);
+            label5.Font = new Font("Yu Gothic UI", 14.25F);
+            label5.Location = new Point(12, 516);
             label5.Name = "label5";
-            label5.Size = new Size(36, 15);
+            label5.Size = new Size(58, 25);
             label5.TabIndex = 12;
             label5.Text = "■メモ";
             // 
             // DamageComboBox
             // 
             DamageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            DamageComboBox.Font = new Font("Yu Gothic UI", 14.25F);
             DamageComboBox.FormattingEnabled = true;
-            DamageComboBox.Location = new Point(22, 90);
+            DamageComboBox.Location = new Point(12, 90);
             DamageComboBox.Name = "DamageComboBox";
-            DamageComboBox.Size = new Size(188, 23);
+            DamageComboBox.Size = new Size(327, 33);
             DamageComboBox.TabIndex = 13;
             DamageComboBox.SelectedIndexChanged += DamageComboBox_SelectedIndexChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(22, 72);
+            label6.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label6.Location = new Point(12, 62);
             label6.Name = "label6";
-            label6.Size = new Size(52, 15);
+            label6.Size = new Size(84, 25);
             label6.TabIndex = 14;
             label6.Text = "■ダメージ";
             // 
@@ -255,7 +271,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(461, 569);
+            ClientSize = new Size(814, 889);
             Controls.Add(label6);
             Controls.Add(DamageComboBox);
             Controls.Add(label5);
