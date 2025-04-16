@@ -25,19 +25,59 @@ namespace ComboSerch
 
         }
 
-
-        private void RegisterButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// キャラ名を登録する
+        /// </summary>
+        void RegisterName()
         {
-            Info.Name = Text.Replace("の登録" , "");
+            if (Info.Name == string.Empty)
+            {
+                var dialog = new RegisterNameDialog();
+                var rssult = dialog.ShowDialog();
+                if (rssult == DialogResult.OK)
+                {
+                    Info.Name = dialog.Info.Name;
+                    DialogResult = DialogResult.OK;
+
+                    Close();
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 登録する
+        /// </summary>
+        void RegisterCategory()
+        {            
             Info.Damage = DamegeSelectBox.Text;
             Info.Combo = ComboTextBox.Text;
             Info.CategoryCombo = CategoryComboTextBox.Text;
             Info.Attribute = AttributeTextBox.Text;
             Info.Note = NoteTextBox.Text;
+        }
 
 
-            DialogResult = DialogResult.OK;
-            Close();
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            if (Info.Name != string.Empty)
+            {
+                RegisterCategory();
+                DialogResult = DialogResult.OK;
+
+                Close();
+            }
+            else 
+            { 
+                RegisterCategory();
+                RegisterName();                         
+            }
+              
+            
+            
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

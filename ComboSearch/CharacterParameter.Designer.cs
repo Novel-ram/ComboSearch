@@ -115,7 +115,6 @@
             SelectToolStripMenuItem.Name = "SelectToolStripMenuItem";
             SelectToolStripMenuItem.Size = new Size(102, 29);
             SelectToolStripMenuItem.Text = "キャラ選択";
-            SelectToolStripMenuItem.Click += SelectToolStripMenuItem_Click;
             // 
             // CategoryComboComboBox
             // 

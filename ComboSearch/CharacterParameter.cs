@@ -23,13 +23,12 @@ namespace ComboSerch.Parameter
         public List<ComboInfo> ParameterList = new List<ComboInfo>();
         public string FileName = "";
 
+
         public CharacterParameter()
         {
             InitializeComponent();
 
             UpdateComboBox();
-
-
         }
 
         /// <summary>
@@ -80,9 +79,11 @@ namespace ComboSerch.Parameter
                 {
                     ComboRouteLIstBox.Items.Add(info);
                 }
-                    Text = info.Name;
+                Text = info.Name;
             }
         }
+
+        
 
         /// <summary>
         /// ダメージカテゴリを登録する
@@ -142,36 +143,34 @@ namespace ComboSerch.Parameter
         /// <param name="e"></param>
         private void RegisterItemButton_Click(object sender, EventArgs e)
         {
-
             var dialog = new RegisterCharacterDialog();
-            dialog.Text = Text + "の登録";
+                dialog.Text = "コンボ登録";
+                dialog.Info.Name = this.Text;
             var result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ParameterList.Add(dialog.Info);
-                UpdateComboBox();
-                DamageComboBox.Text = dialog.Info.Damage;
-                CategoryComboComboBox.Text = dialog.Info.CategoryCombo;
-                AttributeComboBox.Text = dialog.Info.Attribute;
-                UpdateListBox();
+                
+                    ParameterList.Add(dialog.Info);
+                    UpdateComboBox();
+                    DamageComboBox.Text = dialog.Info.Damage;
+                    CategoryComboComboBox.Text = dialog.Info.CategoryCombo;
+                    AttributeComboBox.Text = dialog.Info.Attribute;
+                    UpdateListBox();
 
-                SaveComboList(FileName);
+                    SaveComboList(FileName);
+                
             }
         }
 
+
         /// <summary>
-        /// キャラ選択ボタン
+        /// キャラ選択ボタンを押したとき
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SelectToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void CharacterParameter_Load(object sender, EventArgs e)
         {
-
+  
         }
 
         /// <summary>
