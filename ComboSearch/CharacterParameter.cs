@@ -29,6 +29,7 @@ namespace ComboSerch.Parameter
             InitializeComponent();
 
             UpdateComboBox();
+
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace ComboSerch.Parameter
             ComboRouteLIstBox.Items.Clear();
             foreach (var info in ParameterList)
             {
-                
+
                 if (info.Damage == DamageComboBox.Text ||
                     DamageComboBox.Text == "すべて")
                 {
@@ -83,7 +84,7 @@ namespace ComboSerch.Parameter
             }
         }
 
-        
+
 
         /// <summary>
         /// ダメージカテゴリを登録する
@@ -144,21 +145,21 @@ namespace ComboSerch.Parameter
         private void RegisterItemButton_Click(object sender, EventArgs e)
         {
             var dialog = new RegisterCharacterDialog();
-                dialog.Text = "コンボ登録";
-                dialog.Info.Name = this.Text;
+            dialog.Text = "コンボ登録";
+            dialog.Info.Name = this.Text;
             var result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                
-                    ParameterList.Add(dialog.Info);
-                    UpdateComboBox();
-                    DamageComboBox.Text = dialog.Info.Damage;
-                    CategoryComboComboBox.Text = dialog.Info.CategoryCombo;
-                    AttributeComboBox.Text = dialog.Info.Attribute;
-                    UpdateListBox();
 
-                    SaveComboList(FileName);
-                
+                ParameterList.Add(dialog.Info);
+                UpdateComboBox();
+                DamageComboBox.Text = dialog.Info.Damage;
+                CategoryComboComboBox.Text = dialog.Info.CategoryCombo;
+                AttributeComboBox.Text = dialog.Info.Attribute;
+                UpdateListBox();
+
+                SaveComboList(FileName);
+
             }
         }
 
@@ -170,7 +171,7 @@ namespace ComboSerch.Parameter
         /// <param name="e"></param>
         private void CharacterParameter_Load(object sender, EventArgs e)
         {
-  
+
         }
 
         /// <summary>
@@ -380,6 +381,50 @@ namespace ComboSerch.Parameter
                 SaveComboList(FileName);
             }
         }
+
+        /// <summary>
+        /// リストボックスのフォントを変更する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ColorDesign()
+        {
+            var fontcolor = ComboRouteLIstBox.ForeColor;
+            var blue = "L";
+            var yellow = "M";
+            var red = "H";
+
+            foreach (var font in ComboRouteLIstBox.Items)
+            {
+                var fontword = font.ToString();
+                fontword.Split("-");
+                if (fontword == blue)
+                {
+                    fontcolor = Color.Blue;
+                }
+                else if (fontword == yellow)
+                {
+                    fontcolor = Color.Yellow;
+                }
+                else if (fontword == red)
+                {
+                    fontcolor = Color.Red;
+                }
+
+                else
+                {
+                    fontcolor = Color.Black;
+                }
+            }
+
+
+
+        }
+
+        
     }
 
+
+
 }
+

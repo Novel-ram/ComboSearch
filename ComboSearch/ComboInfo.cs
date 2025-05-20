@@ -26,7 +26,7 @@ namespace ComboSearch
         /// <returns></returns>
         override public string ToString()
         {
-            return Combo;  
+            return Combo + " " +Damage;  
         }
     }
 }

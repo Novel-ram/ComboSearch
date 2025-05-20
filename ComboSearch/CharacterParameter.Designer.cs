@@ -36,7 +36,6 @@
             ファイルToolStripMenuItem = new ToolStripMenuItem();
             ReadToolStripMenuItem = new ToolStripMenuItem();
             SaveToolStripMenuItem = new ToolStripMenuItem();
-            SelectToolStripMenuItem = new ToolStripMenuItem();
             CategoryComboComboBox = new ComboBox();
             ComboRouteLIstBox = new ListBox();
             label1 = new Label();
@@ -59,7 +58,7 @@
             // ItemEditButton
             // 
             ItemEditButton.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            ItemEditButton.Location = new Point(462, 810);
+            ItemEditButton.Location = new Point(689, 810);
             ItemEditButton.Name = "ItemEditButton";
             ItemEditButton.Size = new Size(276, 62);
             ItemEditButton.TabIndex = 0;
@@ -82,10 +81,10 @@
             // menuStrip1
             // 
             menuStrip1.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ファイルToolStripMenuItem, SelectToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ファイルToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(814, 33);
+            menuStrip1.Size = new Size(1101, 33);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -110,12 +109,6 @@
             SaveToolStripMenuItem.Text = "保存";
             SaveToolStripMenuItem.Click += SaveToolStripMenuItem_Click;
             // 
-            // SelectToolStripMenuItem
-            // 
-            SelectToolStripMenuItem.Name = "SelectToolStripMenuItem";
-            SelectToolStripMenuItem.Size = new Size(102, 29);
-            SelectToolStripMenuItem.Text = "キャラ選択";
-            // 
             // CategoryComboComboBox
             // 
             CategoryComboComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -130,12 +123,14 @@
             // ComboRouteLIstBox
             // 
             ComboRouteLIstBox.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            ComboRouteLIstBox.ForeColor = SystemColors.WindowText;
             ComboRouteLIstBox.FormattingEnabled = true;
+            ComboRouteLIstBox.HorizontalScrollbar = true;
             ComboRouteLIstBox.ItemHeight = 25;
             ComboRouteLIstBox.Location = new Point(370, 90);
             ComboRouteLIstBox.Name = "ComboRouteLIstBox";
             ComboRouteLIstBox.ScrollAlwaysVisible = true;
-            ComboRouteLIstBox.Size = new Size(432, 704);
+            ComboRouteLIstBox.Size = new Size(719, 704);
             ComboRouteLIstBox.TabIndex = 3;
             ComboRouteLIstBox.DoubleClick += ComboRouteLIstBox_DoubleClick;
             ComboRouteLIstBox.MouseUp += ComboRouteLIstBox_MouseUp;
@@ -194,7 +189,7 @@
             // RegisterItemButton
             // 
             RegisterItemButton.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            RegisterItemButton.Location = new Point(92, 810);
+            RegisterItemButton.Location = new Point(101, 810);
             RegisterItemButton.Name = "RegisterItemButton";
             RegisterItemButton.Size = new Size(276, 62);
             RegisterItemButton.TabIndex = 9;
@@ -270,7 +265,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(814, 889);
+            ClientSize = new Size(1101, 889);
             Controls.Add(label6);
             Controls.Add(DamageComboBox);
             Controls.Add(label5);
@@ -315,7 +310,6 @@
         private ComboBox BeginMoveComboBox;
         private Button RegisterItemButton;
         private Label label4;
-        private ToolStripMenuItem SelectToolStripMenuItem;
         private ComboBox NoteComboBox;
         private Label label5;
         private ComboBox DamageComboBox;
